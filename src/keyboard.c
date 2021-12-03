@@ -116,6 +116,9 @@ handle_compositor_keybindings(struct wl_listener *listener,
 		}
 	}
 
+	xkb_layout_index_t layout = xkb_state_key_get_layout (device->keyboard->xkb_state, keycode);
+	nsyms = xkb_keymap_key_get_syms_by_level(device->keyboard->keymap, keycode, layout, 0, &syms);
+
 	if (server->cycle_view) {
 		damage_all_outputs(server);
 		if (event->state == WL_KEYBOARD_KEY_STATE_PRESSED) {
