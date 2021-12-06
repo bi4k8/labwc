@@ -328,7 +328,7 @@ xdg_toplevel_view_map(struct view *view)
 
 		foreign_toplevel_handle_create(view);
 
-		view->ssd.enabled = has_ssd(view);
+		view->ssd.enabled = false;
 		if (view->ssd.enabled) {
 			view->margin = ssd_thickness(view);
 			ssd_create(view);
